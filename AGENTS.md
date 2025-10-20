@@ -216,7 +216,7 @@ If rerunning due to feedback or detected issues, regenerate the plan with an **�
 
 ## Plan Evaluator: Simulated Application & Issue Report (Pre-Macro Only)
 
-**When to run:** Execute this evaluator **after** producing the “Comprehensive Code Transformation Plan” and **before** creating any macro sections or making edits. This stage is **pre-macro only** and blocks implementation until the report is accepted.
+**When to run:** you **may** execute this evaluator **after** producing the “Comprehensive Code Transformation Plan” and **before** creating any macro sections or making edits. However, you are **never** allowed to run this step **without** a user request for an evaluation of the plan. In other words, the simulated application then evaluation of the plan for issues to generate an issues report is something **only the user can request**, the user would say something like "please evaluate the plan you just generated" and that would trigger this set of instructions for your next turn.
 
 **Inputs available (conceptual names; use what’s present):**
 
@@ -313,7 +313,7 @@ Output the exact "no issues found" tag on a single line:
 
 ## Post-Edit Audit: Cross-File Issues (Pre-Checkpoint)
 
-**When to run:** Immediately **after** a macro section completes code edits and **before** you say “Checkpoint reached, user input required.” This step is **pre-checkpoint only** and blocks continuation until its output is accepted.
+**When to run:** after a macro section completes code edits and **after** you say “Checkpoint reached, user input required.” It depends on the user input given. You are **never** allowed to run this step **without** a user request for an evaluation of any cross file issues. In other words, the post-edit audit of cross-file issues is something **only the user can request**, the user would say something like "please evaluate the changes you just made" and that would trigger this set of instructions for your next turn.
 
 **What to analyze (how to gather inputs in this environment):**
 
@@ -410,7 +410,7 @@ Output the exact "no issues found" tag on a single line:
 
 ## Post-Edit Fixer: Single-File Redo From Issues (Pre-Checkpoint)
 
-**When to run:** Run **only if** the Post-Edit Audit reports issues. Fix **one file at a time** from the audit’s `"issues_by_file"`. After emitting a fix for a file, rerun the **Post-Edit Audit**. Repeat until it returns `"issues_found": false`, then proceed to the checkpoint.
+**When to run:** Run **only if** the Post-Edit Audit was ran and reports issues. Fix **one file at a time** from the audit’s `"issues_by_file"`. After emitting a fix for a file, rerun the **Post-Edit Audit**. Repeat until it returns `"issues_found": false`, then proceed to the checkpoint.
 
 **What to use as inputs (how to gather in this environment):**
 
