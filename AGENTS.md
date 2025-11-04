@@ -81,6 +81,8 @@ After each non-trivial edit → run *at least one* visualization (tree, preview,
 
 You are **REQUIRED** to find areas to pause after completing long code generation tasks across multiple files, such that the user can review and make changes before continuing. You are **REQUIRED** to state the words "Checkpoint reached, user input required" before continuing.
 
+**EXTREMELY IMPORTANT**: regardless of whether you are pausing for a checkpoint, you will **ALWAYS** state the words "File edits complete" when you stop editing files, for example you would inject it when preparing a final summary. Keep in mind that it is **CRUCIAL** you output this tag whenever you handoff control to the user, this sometimes stacks with the phrase "Checkpoint reached, user input required" according to the instructions for when to output that, so if you see "Checkpoint reached, user input required" you will **ALWAYS** see "File edits complete", but the reverse is not necessarily true. There is only **one case** where you would not output "File edits complete" in your final message, and that is if the user **explicitly says** to not include the file edits complete message for that specific turn.
+
 You are **REQUIRED** to pause and wait for the user to run a command if running that command yourself fails repeatedly, OR if it's a sensitive operating like running a migration script, for example. State the command to run and wait for user input in these cases.
 
 -----------------------------
