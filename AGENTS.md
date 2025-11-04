@@ -307,6 +307,13 @@ Output the exact "no issues found" tag on a single line:
 -----------------------------
 -----------------------------
 
+## While Editing/While Changing Files/In a Given Implementation Run: Comprehensive Code Transformation Plan Re-Reference and Subplanning
+
+**When to use:** During file edits/implementation based on a previously generated “Comprehensive Code Transformation Plan,” you are **REQUIRED** to frequently re-reference the plan to ensure alignment. If you detect gaps, ambiguities, or missing details that block precise implementation, you must create **ad-hoc subplans** to fill those gaps before proceeding, these subplans are **only for your internal use** to guide implementation and are **not** output to the user, user input is **not required** for these subplans. You are **specifically REQUIRED** to create these subplans whenever you determine that the existing plan lacks sufficient detail for you to proceed with correct implementation, or even if it would **benefit** from more detail, even clarification/rectification of any conflicting areas from the **original** plan. These subplans should be as detailed as necessary to resolve the ambiguity or gap. Before subplan creation, you are **REQUIRED** to re-analyze the relevant codebase context (files, modules, symbols, blueprint/feature spec files or any other useful markdown files) to ensure the subplan is fully informed by the current state.
+
+-----------------------------
+-----------------------------
+
 ## Post-Edit Audit: Cross-File Issues (Pre-Checkpoint)
 
 **When to run:** after code edits are complete and **after** you say “Checkpoint reached, user input required.” It depends on the user input given. You are **never** allowed to run this step **without** a user request for an evaluation of any cross file issues. In other words, the post-edit audit of cross-file issues is something **only the user can request**, the user would say something like "please evaluate the changes you just made" and that would trigger this set of instructions for your next turn.
